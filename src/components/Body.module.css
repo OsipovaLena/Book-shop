@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-top: 15px;
+}
+
+.book {
+    z-index: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 30px;
+    color: navy;
+    font-size: 15px;
+}
+
+.bookShell img {
+    height: 250px;
+}
+
+.bookShell {
+  display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 25px;
+    gap: 50px;
+}
+
+.page {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.alone {
+    border: solid gainsboro;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.alone img {
+    max-width: 200px;
+    height: auto;
+}
+
+.active {
+    background-color: #4CAF50;
+    color: white
+}
+
+
+

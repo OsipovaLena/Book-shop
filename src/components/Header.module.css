@@ -1,0 +1,41 @@
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: dodgerblue;
+    width: 100%;
+    /*position: fixed;*/
+    top: 0;
+    left: 0;
+}
+
+.head img {
+    width: 155px;
+    border-radius: 50px;
+}
+
+.head button {
+    padding: 10px 20px; /* Пример */
+    margin-right: 20px;
+}
+
+.leftPosition {
+    display: flex;
+    align-items: center;
+}
+
+.name {
+    padding: 20px;
+    width: 250px;
+}
+
+.name h1 {
+    margin-bottom: 5px;
+    color: peachpuff;
+}
+
+.name p {
+    margin-top: 0;
+    color: navy;
+}
+
