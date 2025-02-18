@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import {arrayOfBooks} from "./ArrayOfBooks";
+import s from './AboutBook.module.css'
 
 
 export const InsideBook = () => {
@@ -16,12 +17,11 @@ export const InsideBook = () => {
 
 
     return (
-        <div>
+        <div className={s.aboutBook}>
             <img src={book.img} alt={book.name} />
             <h1>{book.name}</h1>
             <h2>{book.author}</h2>
-            <p>Жанр: {book.genre}</p>
-            <p>Цена: {book.price}</p>
+            <p>Цена: {book.price} ₽</p>
             <p>{book.description}</p>
         </div>
     );

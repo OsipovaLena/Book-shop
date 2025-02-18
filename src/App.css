@@ -1,3 +1,18 @@
+body {
+    background: gainsboro;
+    /*width: 100%;*/
+    /*max-width: 1200px;*/
+    /*margin: 0 auto;*/
+}
+
+.container {
+    background: radial-gradient(circle, #d3d3d3, #4f4f4f);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
 button {
     padding: 8px 16px;
     font-size: 16px;

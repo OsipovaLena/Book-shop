@@ -1,21 +1,24 @@
-function persistence(num) {
+function unic(c) {
 
-    let count = 0
+   let obj = {}
 
-    while (num >= 10){
-        let arr = num.toString().split('').map(el => +el)
+    for (let i = 0; i < c.length; i++){
+        if (c[i] in obj){
+            obj[c[i]]++
+        } else {
+            obj[c[i]] = 1
+        }
+    }
 
-        let result =  arr.reduce((acc, val) => acc * val)
+    let max = Math.max(...Object.values(obj))
 
-        num = result
-
-        count = count +1
+    for (let key in obj){
+        if (obj[key] === max){
+            return key
+        }
     }
 
 
-
-
-    return count
 }
+console.log(unic([1, 1, 2, 4, 4, 3, 5, 6, 6, 2, 3, 3, 3]))
 
-console.log(persistence(999))

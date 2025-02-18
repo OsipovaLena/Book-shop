@@ -4,13 +4,15 @@ import * as React from "react";
 import {Header} from "./components/Header";
 import {Body} from "./components/Body";
 import {useNavigate} from "react-router-dom";
+import s from './App.css'
+import {CartProvider} from "./components/DataContext";
 
 
 const App = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [cartItems, setCartItems] = useState([]);
-    const pageSize = 5;
+    const pageSize = 3;
     const navigate = useNavigate()
 
     const addToCart = (book) => {
@@ -18,7 +20,8 @@ const App = () => {
     };
 
     return (
-        <div>
+
+        <div className="container">
             <Header/>
             <Body
                 currentPage={currentPage}
@@ -27,6 +30,7 @@ const App = () => {
                 addToCart={addToCart}
             />
         </div>
+
     )
 }
 

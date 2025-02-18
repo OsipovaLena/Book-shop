@@ -6,3 +6,14 @@
 .inside img{
     height: 450px;
 }
+
+.aboutBook {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutBook img {
+    height: 500px;
+}

@@ -3,19 +3,19 @@ import {Header} from "./components/Header";
 import {Basket} from "./components/Basket"
 import App from "./App";
 import {InsideBook} from "./components/AboutBook";
+import {CartProvider} from "./components/DataContext";
 
 export const AppRouter = () => {
 
     return (
+        <CartProvider>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />}/>
                 <Route path="/basket" element={<Basket />}/>
                 <Route path="/book/:id" element={<InsideBook />}/>
-                <Route path="/cart" element={<Basket />} />
-
-
             </Routes>
         </BrowserRouter>
+            </CartProvider>
     )
 }

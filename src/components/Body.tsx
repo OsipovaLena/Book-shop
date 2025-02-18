@@ -1,12 +1,17 @@
 import s from './Body.module.css'
 import {arrayOfBooks} from './ArrayOfBooks'
 import {Link, useNavigate} from "react-router-dom";
-import {useState} from "react";
+import {useState, createContext, useContext} from "react";
+import {useCart} from "./DataContext";
+import {Basket} from "./Basket";
 
-export const Body = ({pageSize, currentPage, setCurrentPage, addToCart}) => {
+export const Body = ({pageSize, currentPage, setCurrentPage}) => {
 
     const [genre, setGenre] = useState('all');
+    const { cart, cost, addToCart, clearCart } = useCart();
     const images = arrayOfBooks;
+
+    console.log(cart)
 
 
     const handleGenre = (selectedGenre) => {
@@ -52,15 +57,16 @@ export const Body = ({pageSize, currentPage, setCurrentPage, addToCart}) => {
                                 <img src={e.img} alt="" />
                                 <div>{e.name}</div>
                                 <div>{e.author}</div>
-                                <div>Цена: {e.price}</div>
+                                <div>Цена: {e.price} ₽</div>
                             </Link>
-                            <button onClick={(e) => console.log(e.target)}>В корзину</button>
+                            <button onClick={() => {addToCart(e)}}>В корзину</button>
                         </div>
                     ))
                 ) : (
                     <div>Нет книг в этом жанре.</div>
                 )}
             </div>
+
 
             <div className={s.page}>
                 <button onClick={prevPage} disabled={currentPage <= 1}>Назад</button>

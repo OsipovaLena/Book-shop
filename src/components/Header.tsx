@@ -1,10 +1,12 @@
 import {useNavigate} from "react-router-dom";
 import s from './Header.module.css'
 import bookImage from './book.png'
+import {useCart} from "./DataContext";
 
 
 export const Header = () => {
 
+    const { cart, cost } = useCart();
     const navigate = useNavigate();
 
     const handleBasketClick = () => {
@@ -20,7 +22,11 @@ export const Header = () => {
                     <p>Читай, умней, отдыхай, развивайся</p>
                 </div>
             </div>
-            <button onClick={handleBasketClick}>Корзина</button>
+            <button onClick={handleBasketClick}>Корзина
+                <div>{cart.length}:</div>
+                <div>{cost} ₽</div>
+            </button>
+
         </div>
     )
 }
