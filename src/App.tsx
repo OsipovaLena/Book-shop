@@ -6,6 +6,7 @@ import {Body} from "./components/Body";
 import {useNavigate} from "react-router-dom";
 import s from './App.css'
 import {CartProvider} from "./components/DataContext";
+import {DownPage} from "./components/DownPage";
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
                 pageSize={pageSize}
                 addToCart={addToCart}
             />
+            <DownPage />
         </div>
 
     )

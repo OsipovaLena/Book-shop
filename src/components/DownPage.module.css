@@ -1,0 +1,24 @@
+.down {
+    display: flex;
+    flex-direction: column;
+    background-color: dodgerblue;
+    margin-top: 50px;
+    height: 100px;
+}
+
+.quote {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    color: peachpuff;
+    font-weight: bolder;
+}
+
+.author{
+    font-size: 20px;
+    display: flex;
+    justify-content: end;
+    padding-right: 10px;
+}

@@ -1,12 +1,9 @@
 body {
     background: gainsboro;
-    /*width: 100%;*/
-    /*max-width: 1200px;*/
-    /*margin: 0 auto;*/
 }
 
 .container {
-    background: radial-gradient(circle, #d3d3d3, #4f4f4f);
+    background: radial-gradient(circle, #fad5fa, #f591f5);
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
