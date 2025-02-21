@@ -1,7 +1,10 @@
 .cartContainer {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    background: radial-gradient(circle, #fad5fa, #f591f5);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cartItems {
@@ -9,7 +12,7 @@
 }
 
 .cartItem {
-    border: 1px solid #e0e0e0;
+    border: 1px solid purple;
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 8px;
@@ -38,7 +41,7 @@
 .cartSummary {
     margin-top: 30px;
     padding: 20px;
-    border-top: 2px solid #e0e0e0;
+    border-top: 2px solid purple;
 }
 
 .totalCost {

@@ -12,8 +12,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 500px;
+    margin: 0 auto;
+    border: plum solid;
+    border-radius: 15px;
+    padding: 15px;
+    background: radial-gradient(circle, #fad5fa, #f591f5);
 }
 
 .aboutBook img {
     height: 500px;
+}
+
+.btnBack {
+    padding-top: 20px;
 }

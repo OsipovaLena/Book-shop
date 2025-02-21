@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import {arrayOfBooks} from "./ArrayOfBooks";
 import s from './AboutBook.module.css'
 
@@ -6,7 +6,7 @@ import s from './AboutBook.module.css'
 export const InsideBook = () => {
 
     const { id } = useParams();
-
+    const navigate = useNavigate()
 
     const book = arrayOfBooks.find(book => book.id === parseInt(id));
 
@@ -23,6 +23,9 @@ export const InsideBook = () => {
             <h2>{book.author}</h2>
             <p>Цена: {book.price} ₽</p>
             <p>{book.description}</p>
+            <div className={s.btnBack}>
+            <button onClick={() => navigate(-1)}>Назад</button>
+            </div>
         </div>
     );
 };
