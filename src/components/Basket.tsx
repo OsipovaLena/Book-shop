@@ -5,14 +5,19 @@ import {CartProvider, useCart} from "./DataContext";
 
 export const Basket = () => {
 
-    const { cart, cost, clearCart } = useCart();
+    const { cart, cost, clearCart, setCart, setCost } = useCart();
     const navigate = useNavigate();
     const [debug, setDebug] = useState(false);
 
 
-    const handleDebug = () => {
-        setDebug(!debug)
+    const handleDebug = (itemToRemove, index) => {
+        const newCart = [...cart];
+        newCart.splice(index, 1);
+        setCart(newCart);
+        const itemPrice = parseFloat(itemToRemove.price) || 0;
+        setCost(prevCost => Math.round((prevCost - itemPrice) * 100) / 100);
     }
+
 
     return (
 
@@ -21,6 +26,9 @@ export const Basket = () => {
                 <div className={s.cartItems}>
                     {cart.map((item, index) => (
                         <div key={index} className={s.cartItem}>
+                            <div className={s.delete}>
+                            <button onClick={() => handleDebug(item)}>x</button>
+                            </div>
                             <div className={s.itemInfo}>
                                 <img src={item.img} alt={item.name} className={s.bookImage} />
                                 <div className={s.itemDetails}>

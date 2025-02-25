@@ -38,6 +38,7 @@ export function CartProvider({ children }) {
         setCost(prevCost => prevCost + +item.price);
     };
 
+
     const clearCart = () => {
         setCart([]);
         setCost(0);
@@ -48,7 +49,9 @@ export function CartProvider({ children }) {
             cart,
             cost,
             addToCart,
-            clearCart
+            clearCart,
+            setCart,
+            setCost
         } as any}>
             {children}
         </CartContext.Provider>
