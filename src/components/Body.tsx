@@ -1,17 +1,54 @@
 import s from './Body.module.css'
 import {arrayOfBooks} from './ArrayOfBooks'
 import {Link, useNavigate} from "react-router-dom";
-import {useState, createContext, useContext} from "react";
+import {useState, createContext, useContext, useEffect} from "react";
 import {useCart} from "./DataContext";
 import {Basket} from "./Basket";
 
 export const Body = ({pageSize, currentPage, setCurrentPage}) => {
 
     const [genre, setGenre] = useState('all');
-    const { cart, cost, addToCart, clearCart } = useCart();
+    const { cart, setCart, cost, setCost, addToCart, clearCart } = useCart();
+    const [itemCounts, setItemCounts] = useState({})
     const images = arrayOfBooks;
 
     console.log(cart)
+
+    useEffect(() => {
+        const counts = {};
+        cart.forEach(item => {
+            if(counts[item.id]){
+                counts[item.id]++
+            } else {
+                counts[item.id] = 1;
+            }
+        });
+        setItemCounts(counts);
+    }, [cart]);
+
+    const handleCountIncrease = (item) => {
+        addToCart(item);
+    }
+
+    const handleCountDecrease = (item) => {
+
+        const itemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+
+        if (itemIndex !== -1) {
+            const newCart = [...cart];
+            newCart.splice(itemIndex, 1);
+            setCart(newCart);
+
+
+            const itemPrice = parseFloat(item.price) || 0;
+            setCost(prevCost => Math.round((prevCost - itemPrice) * 100) / 100);
+
+            setItemCounts(prev => ({
+                ...prev,
+                [item.id]: (prev[item.id] || 0) - 1
+            }));
+        }
+    }
 
 
     const handleGenre = (selectedGenre) => {
@@ -59,7 +96,18 @@ export const Body = ({pageSize, currentPage, setCurrentPage}) => {
                                 <div>{e.author}</div>
                                 <div>Цена: {e.price} ₽</div>
                             </Link>
-                            <button onClick={() => {addToCart(e)}}>В корзину</button>
+
+                            {itemCounts[e.id] && itemCounts[e.id] > 0 ? (
+                                <div>
+                                    <button onClick={() => handleCountDecrease(e)}>-</button>
+                                    <span>{itemCounts[e.id]}</span>
+                                    <button onClick={() => handleCountIncrease(e)}>+</button>
+                                </div>
+                            ) : (
+                                <button onClick={() => {
+                                    addToCart(e);
+                                }}>В корзину</button>
+                            )}
                         </div>
                     ))
                 ) : (

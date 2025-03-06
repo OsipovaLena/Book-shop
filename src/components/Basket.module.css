@@ -1,5 +1,9 @@
-.cartContainer {
+.all {
     background: radial-gradient(circle, #fad5fa, #f591f5);
+    min-height: 100vh;
+}
+
+.cartContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,6 +79,7 @@
 
 .delete {
     display: flex;
-    margin-left: 200px;
+    margin-left: 350px;
 }
+
 

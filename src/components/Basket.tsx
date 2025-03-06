@@ -21,13 +21,14 @@ export const Basket = () => {
 
     return (
 
+        <div className={s.all}>
             <div className={s.cartContainer}>
                 <h2>Корзина</h2>
                 <div className={s.cartItems}>
                     {cart.map((item, index) => (
                         <div key={index} className={s.cartItem}>
                             <div className={s.delete}>
-                            <button onClick={() => handleDebug(item)}>x</button>
+                            <button onClick={() => handleDebug(item, index)}>x</button>
                             </div>
                             <div className={s.itemInfo}>
                                 <img src={item.img} alt={item.name} className={s.bookImage} />
@@ -36,6 +37,8 @@ export const Basket = () => {
                                     <p>{item.price} ₽</p>
                                 </div>
                             </div>
+                            <button>-</button>
+                            <button>+</button>
                         </div>
                     ))}
                 </div>
@@ -56,7 +59,7 @@ export const Basket = () => {
                 </div>
                 <button onClick={() => navigate(-1)}>Назад</button>
             </div>
-
+        </div>
 
     )
 }
